@@ -1,2 +1,1 @@
-# Hands-On-Data-Structures-and-Algorithms-with-Kotlin
-Hands-On Data Structures and Algorithms with Kotlin, published by Packt
+# The code for this repository is under development :construction_worker:
