@@ -1,7 +1,7 @@
 package com.rivuchk.packtpub.handsondskotlin.ch09
 
 fun main(args: Array<String>) {
-    val list = mutableListOf(1,2,4)
+    val list = mutableListOf(1,2,5)
 
     println("-----Created With Items-----")
     for (i in list) {
@@ -10,9 +10,10 @@ fun main(args: Array<String>) {
 
     //Adding Items
 
-    list.add(5)
-    list.add(2,3)
-    list.add(6)
+    list.add(6)//(1)
+    list.add(2,3) //(2)
+    list.add(3,4) //(3)
+
 
     println("-----After Adding Items-----")
     for (i in list) {
