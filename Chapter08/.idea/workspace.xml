@@ -50,11 +50,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="ch9_7_mutable_list.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_7_mutable_list.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ch9_8_mutable_access.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_8_mutable_access.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="5" column="2" lean-forward="true" selection-start-line="2" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chapter8_2_empty_list.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_2_empty_list.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ch9_9_set.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_9_set.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="8" column="6" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
+              <caret line="8" column="6" lean-forward="true" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -63,70 +90,52 @@
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_10_set_customdata.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="594">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch9_11_maps.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_11_maps.kt">
+      <file leaf-file-name="chapter8_6_maps.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_6_maps.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="379">
+              <caret line="26" column="3" selection-start-line="2" selection-end-line="28" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch9_12_map.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_12_map.kt">
+      <file leaf-file-name="ch9_6_search.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_6_search.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch9_13_filter.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_13_filter.kt">
+      <file leaf-file-name="ch9_5_sort_functional.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_5_sort_functional.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="393">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch9_14_flatmap.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_14_flatmap.kt">
+      <file leaf-file-name="_Collections.kt" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.20/9ab74271f4694e32e8b2ee645a96ac9bcaf0bc32/kotlin-stdlib-1.2.20-sources.jar!/generated/_Collections.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="264">
+              <caret line="847" column="33" lean-forward="true" selection-start-line="847" selection-start-column="33" selection-end-line="847" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ch9_15_drop.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_15_drop.kt">
+      <file leaf-file-name="Comparable.kt" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.20/9ab74271f4694e32e8b2ee645a96ac9bcaf0bc32/kotlin-stdlib-1.2.20-sources.jar!/kotlin/Comparable.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" lean-forward="true" selection-start-line="2" selection-end-line="7" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ch9_16_take.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_16_take.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ch9_17_zip.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_17_zip.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="3" selection-start-line="2" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="226">
+              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -155,7 +164,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Rivu\.gradle\wrapper\dists\gradle-4.4-all\9br9xq1tocpiv8o6njlyu5op1\gradle-4.4" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Rivu\.gradle\wrapper\dists\gradle-4.4-bin\bgaq7vklkazwgxox0hdadxbvi\gradle-4.4" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -340,7 +349,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6097483685320" />
+        <entry key="$PROJECT_DIR$" value="6084299512603" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="335100480" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2083459160" />
@@ -586,12 +595,6 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_9_set.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_10_set_customdata.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_6_maps.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_8_map.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_13_filter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_14_flatmap.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_15_drop.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_16_take.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_17_zip.kt" />
       </list>
     </option>
   </component>
@@ -612,37 +615,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chapter09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="ch09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="Collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chapter09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="ch09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chapter09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="ch09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="Collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chapter09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="ch09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chapter09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="ch09" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
@@ -652,6 +652,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -678,7 +681,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_17_zipKt">
+  <component name="RunManager" selected="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Chapter8_6_mapsKt">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -701,54 +704,54 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_13_filterKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_10_set_customdataKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="Collections_main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_13_filterKt" />
+      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_10_set_customdataKt" />
       <option name="WORKING_DIRECTORY" />
     </configuration>
-    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_14_flatmapKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_7_mutable_listKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="Collections_main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_14_flatmapKt" />
+      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_7_mutable_listKt" />
       <option name="WORKING_DIRECTORY" />
     </configuration>
-    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_15_dropKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_8_mutable_accessKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="Collections_main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_15_dropKt" />
+      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_8_mutable_accessKt" />
       <option name="WORKING_DIRECTORY" />
     </configuration>
-    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_16_takeKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_9_setKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="Collections_main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_16_takeKt" />
+      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_9_setKt" />
       <option name="WORKING_DIRECTORY" />
     </configuration>
-    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_17_zipKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="com.rivuchk.packtpub.handsondskotlin.ch09.Chapter8_6_mapsKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="Collections_main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_17_zipKt" />
+      <option name="MAIN_CLASS_NAME" value="com.rivuchk.packtpub.handsondskotlin.ch09.Chapter8_6_mapsKt" />
       <option name="WORKING_DIRECTORY" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -787,19 +790,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list>
-      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_13_filterKt" />
-      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_14_flatmapKt" />
-      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_15_dropKt" />
-      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_16_takeKt" />
-      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_17_zipKt" />
+      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_7_mutable_listKt" />
+      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_8_mutable_accessKt" />
+      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_9_setKt" />
+      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_10_set_customdataKt" />
+      <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Chapter8_6_mapsKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_17_zipKt" />
-        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_16_takeKt" />
-        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_15_dropKt" />
-        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_14_flatmapKt" />
-        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_13_filterKt" />
+        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Chapter8_6_mapsKt" />
+        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_10_set_customdataKt" />
+        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_9_setKt" />
+        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_8_mutable_accessKt" />
+        <item itemvalue="Kotlin.com.rivuchk.packtpub.handsondskotlin.ch09.Ch9_7_mutable_listKt" />
       </list>
     </recent_temporary>
   </component>
@@ -821,12 +824,11 @@
       <workItem from="1519173508534" duration="2276000" />
       <workItem from="1522685114976" duration="5361000" />
       <workItem from="1523724119195" duration="15856000" />
-      <workItem from="1524371075572" duration="7218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63360000" />
+    <option name="totallyTimeSpent" value="56142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -842,12 +844,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" x="220" y="30" width="727" height="793" id="Run" order="2" type="WINDOWED" weight="0.22423556" />
+      <window_info anchor="bottom" x="220" y="30" width="850" height="793" id="Run" order="2" type="WINDOWED" weight="0.22423556" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29261744" />
-      <window_info anchor="bottom" id="Build" order="11" visible="true" weight="0.32909605" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2885906" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32975295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -858,6 +859,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997735" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Build" order="11" visible="true" weight="0.32909605" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1039,6 +1041,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_7_list_access.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_8_map.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_9_filter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_10_flatmap.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_11_drop.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_12_take.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_13_zip.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_13_zip2.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1099,26 +1150,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#51#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_5_sort_functional.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="393">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.20/9ab74271f4694e32e8b2ee645a96ac9bcaf0bc32/kotlin-stdlib-1.2.20-sources.jar!/generated/_Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27951">
-          <caret line="847" column="33" selection-start-line="847" selection-start-column="33" selection-end-line="847" selection-end-column="33" />
+        <state relative-caret-position="264">
+          <caret line="847" column="33" lean-forward="true" selection-start-line="847" selection-start-column="33" selection-end-line="847" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.20/9ab74271f4694e32e8b2ee645a96ac9bcaf0bc32/kotlin-stdlib-1.2.20-sources.jar!/kotlin/Comparable.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
+        <state relative-caret-position="226">
           <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
         </state>
       </provider>
@@ -1126,99 +1180,56 @@
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_6_search.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_7_mutable_list.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="195">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_8_mutable_access.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="5" column="2" selection-start-line="2" selection-end-line="7" selection-end-column="1" />
+          <caret line="5" column="2" lean-forward="true" selection-start-line="2" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_9_set.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="8" column="6" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
+          <caret line="8" column="6" lean-forward="true" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_4_set.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_4_set.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_2_empty_list.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_10_set_customdata.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_7_list_access.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/chapter8_6_maps.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_11_maps.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_12_map.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_13_filter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_14_flatmap.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_15_drop.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" lean-forward="true" selection-start-line="2" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_16_take.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/rivuchk/packtpub/handsondskotlin/ch09/ch9_17_zip.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="3" selection-start-line="2" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="379">
+          <caret line="26" column="3" selection-start-line="2" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
