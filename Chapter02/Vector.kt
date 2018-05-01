@@ -7,14 +7,14 @@ class Vector<E> {
     private var size = 0
 
     constructor() {
-        this.elements = arrayOf<Any?>()
+        this.elements = arrayOf()
     }
 
     constructor(initialCapacity: Int) {
         if (initialCapacity > 0) {
-            this.elements = Array<Any?>(initialCapacity) {i -> null}
+            this.elements = Array(initialCapacity) {i -> null}
         } else if (initialCapacity == 0) {
-            this.elements = emptyArray<Any?>()
+            this.elements = emptyArray()
         } else {
             throw IllegalArgumentException("Illegal Capacity: $initialCapacity")
         }
