@@ -12,7 +12,7 @@ class ImmutableList<E> {
 
     constructor(initialCapacity: Int) {
         if (initialCapacity > 0) {
-            this.elements = Array(initialCapacity) {i -> null}
+            this.elements = Array(initialCapacity) {_ -> null}
         } else if (initialCapacity == 0) {
             this.elements = emptyArray()
         } else {
@@ -20,13 +20,18 @@ class ImmutableList<E> {
         }
     }
 
-    fun add(element: E): ImmutableList<E> {
-        
-        return true
+    constructor(vararg items: E) {
+        this.elements = items as Array<Any?>
+        size = items.size
     }
 
-    fun add(index: Int, element: E) {
-        
+    fun add(element: E): ImmutableList<E> {
+        val s = size
+        val newList = ImmutableList<E>(s + 1)
+        System.arraycopy(elements, 0, newList.elements, 0, s)
+        newList.elements[s] = element
+        newList.size = s + 1
+        return newList
     }
 
     fun get(index: Int): E {
@@ -35,40 +40,16 @@ class ImmutableList<E> {
         return elements[index] as E
     }
 
-    fun set(index: Int, element: E): E {
+    fun set(index: Int, element: E): ImmutableList<E> {
         if (index >= size)
             throwIndexOutOfBoundsException(index, size)
 
-        val oldValue = elements[index] as E
-        elements[index] = element
-        return oldValue
-    }
-
-    fun remove(index: Int): E {
-        if (index >= size)
-            throwIndexOutOfBoundsException(index, size)
-
-        val oldValue = elements[index] as E
-
-        val numMoved = size - index - 1
-        if (numMoved > 0)
-            System.arraycopy(elements, index + 1, elements, index, numMoved)
-        elements[--size] = null // clear to let GC do its work
-
-        return oldValue
-    }
-
-    fun remove(element: E): Boolean {
-        for (index in 0 until size) {
-            if (element == elements[index]) {
-                val numMoved = size - index - 1
-                if (numMoved > 0)
-                    System.arraycopy(elements, index + 1, elements, index, numMoved)
-                elements[--size] = null // clear to let GC do its work
-                return true
-            }
-        }
-        return false
+        val s = size
+        val newList = ImmutableList<E>(s)
+        System.arraycopy(elements, 0, newList.elements, 0, s)
+        newList.elements[index] = element
+        newList.size = s
+        return newList
     }
 
     fun isEmpty() = size == 0
@@ -105,13 +86,6 @@ class ImmutableList<E> {
         return -1
     }
 
-    fun clear() {
-        // clear to let GC do its work
-        for (i in 0 until size)
-            elements[i] = null
-        size = 0
-    }
-
     fun toArray(): Array<out Any?> {
         return Arrays.copyOf(elements, size)
     }
@@ -132,22 +106,12 @@ class ImmutableList<E> {
 }
 
 fun main(args: Array<String>) {
-    val vector = Vector<String>(10)
-    println("Size of newly created vector is : ${vector.size()}")
-    println("Elements in vector are : $vector")
+    val immutableList = ImmutableList<String>("A", "B", "C")
+    val modifiedList = immutableList.add("D")
+    println("Initial List - $immutableList")
+    println("List after adding an element - $modifiedList")
 
-    vector.add("Kotlin")
-    vector.add("Java")
-    vector.add("Python")
-    println("Elements in vector are : $vector")
-
-    vector.set(2, "JavaScript")
-    println("Elements in vector are : $vector")
-
-    vector.remove("Java")
-    println("Elements in vector are : $vector")
-
-    vector.add("Python")
-    vector.remove(2)
-    println("Elements in vector are : $vector")
+    val list2 = immutableList.set(1, "E")
+    println("Initial List - $immutableList")
+    println("List after replacing an element at 1st index - $list2")
 }
