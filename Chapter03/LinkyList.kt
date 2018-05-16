@@ -254,4 +254,40 @@ fun main(args: Array<String>) {
     println("Elements at linkyList after removing Java - $linkyList")
     linkyList.remove("Python")
     println("Elements at linkyList after removing Python - $linkyList")
+
+    testGetFirst()
+}
+
+fun testGetFirst() {
+    println()
+    println("Add method testing started")
+    val linkyList = LinkyList<String>()
+    println(linkyList.getFirst() == null)
+
+    linkyList.add("Kotlin")
+    println(linkyList.getFirst() == "Kotlin")
+
+    linkyList.add("Java")
+    println(linkyList.getFirst() == "Kotlin")
+
+    linkyList.add("Python")
+    println(linkyList.getFirst() == "Kotlin")
+
+    linkyList.add(0, "Python")
+    println(linkyList.getFirst() == "Python")
+
+    linkyList.add(1, "JavaScript")
+    println(linkyList.getFirst() == "Python")
+
+    linkyList.set(0, "JavaScript")
+    println(linkyList.getFirst() == "JavaScript")
+
+    linkyList.set(1, "Kotlin")
+    println(linkyList.getFirst() == "JavaScript")
+
+    linkyList.addFirst("Kotlin")
+    println(linkyList.getFirst() == "Kotlin")
+
+    linkyList.addLast("JavaScript")
+    println(linkyList.getFirst() == "Kotlin")
 }
