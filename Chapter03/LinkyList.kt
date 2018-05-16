@@ -75,6 +75,22 @@ class LinkyList<E> {
         }
     }
 
+    fun addV2(index: Int, element: E) {
+        validateIndex(index)
+        if (index == 0) linkHead(element)
+        else {
+            var x = head
+            val prevIndex = index - 1
+            for (i in 0 until prevIndex) {
+                x = x!!.next
+            }
+            val next = x!!.next
+            val newNode = Node(element, next)
+            x.next = newNode
+            size++
+        }
+    }
+
     fun remove(index: Int): E {
         validateIndex(index)
         return unlink(node(index))
@@ -123,22 +139,6 @@ class LinkyList<E> {
             pred.next = newNode
         }
         size++
-    }
-
-    fun linkBeforeV2(index: Int, element: E) {
-        validateIndex(index)
-        if (index == 0) linkHead(element)
-        else {
-            var x = head
-            val prevIndex = index - 1
-            for (i in 0 until prevIndex) {
-                x = x!!.next
-            }
-            val next = x!!.next
-            val newNode = Node(element, next)
-            x!!.next = newNode
-            size++
-        }
     }
 
     private fun unlinkHead() {
@@ -272,7 +272,7 @@ fun main(args: Array<String>) {
     println("Elements at linkyList after removing Python - $linkyList")
 
     testGetFirst()
-    testLinkBeforeV2()
+    testAddV2()
 }
 
 fun testGetFirst() {
@@ -328,10 +328,10 @@ fun testGetFirst() {
     println("Elements at LinkyList - $linkyList")
 }
 
-fun testLinkBeforeV2() {
+fun testAddV2() {
     println()
     println("==================================")
-    println("testLinkBeforeV2 method testing started")
+    println("testAddV2 method testing started")
     val linkyList = LinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
@@ -341,25 +341,25 @@ fun testLinkBeforeV2() {
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.linkBeforeV2(1, "JavaScript")
+    linkyList.addV2(1, "JavaScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.linkBeforeV2(2, "TypeScript")
+    linkyList.addV2(2, "TypeScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.linkBeforeV2(3, "CofeeScript")
+    linkyList.addV2(3, "CofeeScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.linkBeforeV2(7, "MongoDB")
+    linkyList.addV2(7, "MongoDB")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.linkBeforeV2(0, "SQL")
+    linkyList.addV2(0, "SQL")
     println("Elements at LinkyList - $linkyList")
 
-    println("testLinkBeforeV2 method testing started")
+    println("testAddV2 method testing started")
     println("==================================")
 }
