@@ -273,6 +273,11 @@ fun main(args: Array<String>) {
 
     testGetFirst()
     testAddV2()
+    testGet()
+    testSet()
+    testRemoveFirst()
+    testRemoveLast()
+    testRemoveValue()
 }
 
 fun testGetFirst() {
@@ -362,4 +367,120 @@ fun testAddV2() {
 
     println("testAddV2 method testing started")
     println("==================================")
+}
+
+fun testGet() {
+    println()
+    println("=================================")
+    println("Testing get started")
+    val linkyList = LinkyList<String>()
+    linkyList.add("Kotlin")
+    linkyList.add("Java")
+    linkyList.add("C#")
+    linkyList.add("C")
+    linkyList.add("C++")
+
+    println("0th Index - ${linkyList.get(0)}")
+    println("1st Index - ${linkyList.get(1)}")
+    println("2nd Index - ${linkyList.get(2)}")
+    println("3rd Index - ${linkyList.get(3)}")
+    println("4th Index - ${linkyList.get(4)}")
+    println("Testing get ended")
+    println("=================================")
+}
+
+fun testSet() {
+    println()
+    println("=================================")
+    println("Testing set started")
+    val linkyList = LinkyList<String>()
+    linkyList.add("Kotlin")
+    linkyList.add("Java")
+    linkyList.add("C#")
+    linkyList.add("C")
+    linkyList.add("C++")
+
+    println("0th Index - ${linkyList.set(0, "Edited Kotlin")}")
+    println("1st Index - ${linkyList.set(1, "Edited Java")}")
+    println("2nd Index - ${linkyList.set(2, "Edited C#")}")
+    println("3rd Index - ${linkyList.set(3, "Edited C")}")
+    println("4th Index - ${linkyList.set(4, "Edited C++")}")
+    println("Final list - $linkyList")
+    println("Testing set ended")
+    println("=================================")
+}
+
+fun testRemoveFirst() {
+    println()
+    println("=================================")
+    println("Testing removeFirst started")
+    val linkyList = LinkyList<String>()
+    linkyList.add("Kotlin")
+    linkyList.add("Java")
+    linkyList.add("C#")
+    linkyList.add("C")
+    linkyList.add("C++")
+
+    println("List - $linkyList")
+    linkyList.removeFirst()
+    println("List - $linkyList")
+    linkyList.removeFirst()
+    println("List - $linkyList")
+    linkyList.removeFirst()
+    println("List - $linkyList")
+    linkyList.removeFirst()
+    println("List - $linkyList")
+    println("Testing removeFirst ended")
+    println("=================================")
+}
+
+fun testRemoveLast() {
+    println()
+    println("=================================")
+    println("Testing removeLast started")
+    val linkyList = LinkyList<String>()
+    linkyList.add("Kotlin")
+    linkyList.add("Java")
+    linkyList.add("C#")
+    linkyList.add("C")
+    linkyList.add("C++")
+
+    println("List - $linkyList")
+    linkyList.removeLast()
+    println("List - $linkyList")
+    linkyList.removeLast()
+    println("List - $linkyList")
+    linkyList.removeLast()
+    println("List - $linkyList")
+    linkyList.removeLast()
+    println("List - $linkyList")
+    println("Testing removeLast ended")
+    println("=================================")
+}
+
+fun testRemoveValue() {
+    println()
+    println("=================================")
+    println("Testing testRemoveValue started")
+    val linkyList = LinkyList<String>()
+    linkyList.add("Kotlin")
+    linkyList.add("Java")
+    linkyList.add("C#")
+    linkyList.add("C")
+    linkyList.add("C++")
+
+    println("JavaScript" in linkyList)
+    println("Kotlin" in linkyList)
+
+    println("List - $linkyList")
+    linkyList.remove("Java")
+    println("List - $linkyList")
+    linkyList.remove("Kotlin")
+    println("List - $linkyList")
+    linkyList.remove("JavaScript")
+    println("List - $linkyList")
+    linkyList.remove("Python")
+    println("List - $linkyList")
+    println("Testing testRemoveValue ended")
+    println("=================================")
 }
