@@ -1,9 +1,9 @@
-class LinkyList<E> {
+class DoublyLinkyList<E> {
     private var size = 0
     private var head: Node<E>? = null
     private var tail: Node<E>? = null
 
-    private inner class Node<E> constructor(internal var element: E, internal var next: Node<E>?)
+    private inner class Node<E> constructor(internal var prev: Node<E>?, internal var element: E, internal var next: Node<E>?)
 
     fun getFirst() = head?.element
 
@@ -42,6 +42,7 @@ class LinkyList<E> {
         while (x != null) {
             val next = x.next
             x.next = null
+            x.prev = null
             x = next
         }
         tail = null
@@ -75,22 +76,6 @@ class LinkyList<E> {
         }
     }
 
-    fun addV2(index: Int, element: E) {
-        validateIndex(index)
-        if (index == 0) linkHead(element)
-        else {
-            var x = head
-            val prevIndex = index - 1
-            for (i in 0 until prevIndex) {
-                x = x!!.next
-            }
-            val next = x!!.next
-            val newNode = Node(element, next)
-            x.next = newNode
-            size++
-        }
-    }
-
     fun remove(index: Int): E {
         validateIndex(index)
         return unlink(node(index))
@@ -110,17 +95,19 @@ class LinkyList<E> {
 
     private fun linkHead(element: E) {
         val h = head
-        val newNode = Node<E>(element, h)
+        val newNode = Node<E>(null, element, h)
         head = newNode
         if (h == null) {
             tail = newNode
+        } else {
+            h.prev = newNode
         }
         size++
     }
 
     private fun linkTail(element: E) {
         val t = tail
-        val newNode = Node<E>(element, null)
+        val newNode = Node<E>(t, element, null)
         tail = newNode
         if (t == null) {
             head = newNode
@@ -131,8 +118,9 @@ class LinkyList<E> {
     }
 
     private fun linkBefore(element: E, succ: Node<E>) {
-        val pred = getPrevious(succ)
-        val newNode = Node(element, succ)
+        val pred = succ.prev
+        val newNode = Node(pred, element, succ)
+        succ.prev = newNode
         if (pred == null) {
             head = newNode
         } else {
@@ -148,6 +136,8 @@ class LinkyList<E> {
             head = next
             if (next == null) {
                 tail = null
+            } else {
+                next.prev = null
             }
             size--
         }
@@ -155,7 +145,8 @@ class LinkyList<E> {
 
     private fun unlinkTail() {
         tail?.let {
-            val prev = getPrevious(it)
+            val prev = it.prev
+            it.prev = null
             tail = prev
             if (prev == null) {
                 tail = null
@@ -169,20 +160,19 @@ class LinkyList<E> {
     private fun unlink(curr: Node<E>): E {
         val element = curr.element
         val next = curr.next
-        val prev = getPrevious(curr)
+        val prev = curr.prev
 
         if (prev == null) {
             head = next
         } else {
             prev.next = next
-            curr.next = null
+            curr.prev = null
         }
 
         if (next == null) {
-            prev?.next = null
             tail = prev
         } else {
-            prev?.next = next
+            next.prev = prev
             curr.next = null
         }
 
@@ -190,24 +180,18 @@ class LinkyList<E> {
         return element
     }
 
-    private fun getPrevious(node: Node<E>): Node<E>? {
-        if (head != null && node == head) return null
-        var curr = head
-        while (curr != null) {
-            if (curr.next == node) {
-                return curr
-            }
-            curr = curr.next
-        }
-        return null
-    }
-
     private fun node(index: Int): Node<E> {
-        var x = head
-        for (i in 0 until index) {
-            x = x!!.next
+        if (index < size shr 1) {
+            var x = head
+            for (i in 0 until index)
+                x = x!!.next
+            return x!!
+        } else {
+            var x = tail
+            for (i in size - 1 downTo index + 1)
+                x = x!!.prev
+            return x!!
         }
-        return x!!
     }
 
     private fun validateIndex(index: Int) {
@@ -240,7 +224,7 @@ class LinkyList<E> {
 }
 
 fun main(args: Array<String>) {
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     println("First item of the linky list is - ${linkyList.getFirst()}")
     println("Last item of the linky list is - ${linkyList.getLast()}")
 
@@ -272,7 +256,7 @@ fun main(args: Array<String>) {
     println("Elements at linkyList after removing Python - $linkyList")
 
     testGetFirst()
-    testAddV2()
+    testAdd()
     testGet()
     testSet()
     testRemoveFirst()
@@ -284,7 +268,7 @@ fun testGetFirst() {
     println()
     println("==================================")
     println("getFirst method testing started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     println(linkyList.getFirst() == null)
 
     linkyList.add("Kotlin")
@@ -333,11 +317,11 @@ fun testGetFirst() {
     println("Elements at LinkyList - $linkyList")
 }
 
-fun testAddV2() {
+fun testAdd() {
     println()
     println("==================================")
-    println("testAddV2 method testing started")
-    val linkyList = LinkyList<String>()
+    println("testAdd method testing started")
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
@@ -346,26 +330,26 @@ fun testAddV2() {
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.addV2(1, "JavaScript")
+    linkyList.add(1, "JavaScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.addV2(2, "TypeScript")
+    linkyList.add(2, "TypeScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.addV2(3, "CofeeScript")
+    linkyList.add(3, "CofeeScript")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.addV2(7, "MongoDB")
+    linkyList.add(7, "MongoDB")
     println("Elements at LinkyList - $linkyList")
 
     println()
-    linkyList.addV2(0, "SQL")
+    linkyList.add(0, "SQL")
     println("Elements at LinkyList - $linkyList")
 
-    println("testAddV2 method testing started")
+    println("testAdd method testing started")
     println("==================================")
 }
 
@@ -373,7 +357,7 @@ fun testGet() {
     println()
     println("=================================")
     println("Testing get started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
@@ -393,7 +377,7 @@ fun testSet() {
     println()
     println("=================================")
     println("Testing set started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
@@ -414,7 +398,7 @@ fun testRemoveFirst() {
     println()
     println("=================================")
     println("Testing removeFirst started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
@@ -438,7 +422,7 @@ fun testRemoveLast() {
     println()
     println("=================================")
     println("Testing removeLast started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
@@ -462,7 +446,7 @@ fun testRemoveValue() {
     println()
     println("=================================")
     println("Testing testRemoveValue started")
-    val linkyList = LinkyList<String>()
+    val linkyList = DoublyLinkyList<String>()
     linkyList.add("Kotlin")
     linkyList.add("Java")
     linkyList.add("C#")
