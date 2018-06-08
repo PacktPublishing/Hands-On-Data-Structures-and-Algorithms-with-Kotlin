@@ -18,10 +18,10 @@ class FixedQueue<E> {
 
     fun dequeue(): E {
         if (size == 0) throw QueueUnderflowException()
-        val index = --size
-        val obj = elements[index]
-        elements[index] = null
-        return obj as E
+        val oldVal = elements[0]
+        elements[0] = null
+        System.arraycopy(elements, 1, elements, 0, --size)
+        return oldVal as E
     }
 
     fun front() = try {
@@ -86,4 +86,24 @@ fun main(args: Array<String>) {
     }
     animals.dequeue()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()} - Full? -- ${animals.isFull()}")
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
+    animals.dequeue()
+    println(animals)
 }
