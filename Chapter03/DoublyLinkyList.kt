@@ -149,7 +149,7 @@ class DoublyLinkyList<E> {
             it.prev = null
             tail = prev
             if (prev == null) {
-                tail = null
+                head = null
             } else {
                 prev.next = null
             }
@@ -429,6 +429,8 @@ fun testRemoveLast() {
     linkyList.add("C")
     linkyList.add("C++")
 
+    println("List - $linkyList")
+    linkyList.removeLast()
     println("List - $linkyList")
     linkyList.removeLast()
     println("List - $linkyList")
