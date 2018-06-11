@@ -158,7 +158,7 @@ class LinkyList<E> {
             val prev = getPrevious(it)
             tail = prev
             if (prev == null) {
-                tail = null
+                head = null
             } else {
                 prev.next = null
             }

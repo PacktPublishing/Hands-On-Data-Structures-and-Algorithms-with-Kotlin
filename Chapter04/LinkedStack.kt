@@ -5,11 +5,11 @@ class LinkedStack<E> {
     private var head: Node<E>? = null
     private var tail: Node<E>? = null
 
-    private inner class Node<E> constructor(internal var element: E, internal var next: Node<E>?)
+    private inner class Node<E> constructor(internal var prev: Node<E>?, internal var element: E, internal var next: Node<E>?)
 
     fun push(element: E) {
         val t = tail
-        val newNode = Node<E>(element, null)
+        val newNode = Node<E>(t, element, null)
         tail = newNode
         if (t == null) {
             head = newNode
@@ -20,42 +20,52 @@ class LinkedStack<E> {
     }
 
     fun pop(): E {
-        if (size == 0) throw LinkedStackUnderflowException()
-        val index = --size
-        val obj = elements[index]
-        elements[index] = null
-        return obj as E
+        tail?.let {
+            val prev = it.prev
+            it.prev = null
+            tail = prev
+            if (prev == null) {
+                head = null
+            } else {
+                prev.next = null
+            }
+            size--
+            return it.element
+        } ?: throw StackUnderflowException()
     }
 
-    fun peek() = try {
-        elements[size - 1] as E
-    } catch (e: IndexOutOfBoundsException) {
-        throw LinkedStackUnderflowException();
+    fun peek(): E {
+        tail?.let {
+            return it.element
+        } ?: throw StackUnderflowException()
     }
 
     fun isEmpty() = size == 0
 
-    fun isFull() = size == elements.size
-
     override fun toString(): String {
-        if (size == 0) return "[]"
-        val length = size - 1
-        val builder = StringBuilder(size * 16)
-        builder.append('[')
-        for (i in 0 until length) {
-            builder.append(elements[i])
-            builder.append(", ")
+        var curr = head
+        if (curr == null) return "[]"
+        else {
+            val sb = StringBuilder()
+            sb.append('[')
+            while (curr != null) {
+                sb.append(curr.element)
+                curr = curr.next
+                if (curr?.element == null) {
+                    sb.append(']')
+                } else {
+                    sb.append(',').append(' ')
+                }
+            }
+            return sb.toString()
         }
-        builder.append(elements[length])
-        builder.append(']')
-        return builder.toString()
     }
 }
 
-class LinkedStackUnderflowException : RuntimeException()
+class StackUnderflowException : RuntimeException()
 
 fun main(args: Array<String>) {
-    val animals = LinkedStack<String>(10)
+    val animals = LinkedStack<String>()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
 
     animals.push("Lion")
@@ -78,4 +88,44 @@ fun main(args: Array<String>) {
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
     animals.pop()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.pop()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    try {
+        animals.pop()
+        System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    } catch(ex: StackUnderflowException) {
+        println("Exception expected!!!")
+    }
+    animals.push("Buffalo")
+    animals.push("Peacock")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    animals.pop()
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    println("Peek element - ${animals.peek()}")
+    animals.pop()
+    println("Peek element - ${animals.peek()}")
 }

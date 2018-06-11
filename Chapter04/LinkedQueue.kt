@@ -1,74 +1,77 @@
 import java.util.Arrays
 
 class LinkedQueue<E> {
-    private val minCapacityIncrement = 12
-
-    private var elements: Array<Any?>
     private var size = 0
+    private var head: Node<E>? = null
+    private var tail: Node<E>? = null
 
-    constructor() {
-        this.elements = arrayOf()
-    }
-
-    constructor(initialCapacity: Int) {
-        this.elements = arrayOfNulls(initialCapacity)
-    }
+    private inner class Node<E> constructor(internal var prev: Node<E>?, internal var element: E, internal var next: Node<E>?)
 
     fun enqueue(element: E) {
-        if (size == elements.size) {
-            val newArray = arrayOfNulls<Any>(size + if (size < minCapacityIncrement / 2)
-                minCapacityIncrement
-            else
-                size shr 1)
-            System.arraycopy(elements, 0, newArray, 0, size)
-            elements = newArray
+        val t = tail
+        val newNode = Node<E>(t, element, null)
+        tail = newNode
+        if (t == null) {
+            head = newNode
+        } else {
+            t.next = newNode
         }
-        elements[size++] = element
+        size++
     }
 
     fun dequeue(): E {
-        if (size == 0) throw QueueUnderflowException()
-        val oldVal = elements[0]
-        elements[0] = null
-        System.arraycopy(elements, 1, elements, 0, --size)
-        return oldVal as E
+        head?.let {
+            val next = it.next
+            it.next = null
+            head = next
+            if (next == null) {
+                tail = null
+            } else {
+                next.prev = null
+            }
+            size--
+            return it.element
+        } ?: throw QueueUnderflowException()
     }
 
-    fun front() = try {
-        elements[0] as E
-    } catch (e: IndexOutOfBoundsException) {
-        throw QueueUnderflowException();
+    fun front(): E {
+        head?.let {
+            return it.element
+        } ?: throw QueueUnderflowException()
     }
     
-    fun rear() = try {
-        elements[size - 1] as E
-    } catch (e: IndexOutOfBoundsException) {
-        throw QueueUnderflowException();
+    fun rear(): E {
+        tail?.let {
+            return it.element
+        } ?: throw QueueUnderflowException()
     }
 
     fun isEmpty() = size == 0
 
-    fun isFull() = size == elements.size
-
     override fun toString(): String {
-        if (size == 0) return "[]"
-        val length = size - 1
-        val builder = StringBuilder(size * 16)
-        builder.append('[')
-        for (i in 0 until length) {
-            builder.append(elements[i])
-            builder.append(", ")
+        var curr = head
+        if (curr == null) return "[]"
+        else {
+            val sb = StringBuilder()
+            sb.append('[')
+            while (curr != null) {
+                sb.append(curr.element)
+                curr = curr.next
+                if (curr?.element == null) {
+                    sb.append(']')
+                } else {
+                    sb.append(',').append(' ')
+                }
+            }
+            return sb.toString()
         }
-        builder.append(elements[length])
-        builder.append(']')
-        return builder.toString()
     }
 }
 
 class QueueUnderflowException : RuntimeException()
 
 fun main(args: Array<String>) {
-    val animals = LinkedQueue<String>(10)
+    val animals = LinkedQueue<String>()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
 
     animals.enqueue("Lion")
@@ -91,4 +94,31 @@ fun main(args: Array<String>) {
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
     animals.dequeue()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+    // First element
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    animals.enqueue("Peacock")
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Rear element - ${animals.rear()} - Empty? -- ${animals.isEmpty()}")
+    System.out.println("Rear element - ${animals.rear()} - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    animals.dequeue()
+    animals.dequeue()
+    animals.dequeue()
+    animals.dequeue()
+    animals.dequeue()
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    animals.dequeue()
+    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
 }
