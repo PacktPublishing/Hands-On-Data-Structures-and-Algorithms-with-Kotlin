@@ -39,7 +39,7 @@ class LinkedQueue<E> {
             return it.element
         } ?: throw QueueUnderflowException()
     }
-    
+
     fun rear(): E {
         tail?.let {
             return it.element

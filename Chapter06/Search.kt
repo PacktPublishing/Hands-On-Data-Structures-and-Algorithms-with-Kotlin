@@ -49,6 +49,21 @@ fun <E: Comparable<E>> Array<E>.binarySearch(element: E): Int {
     return -1                       // element not found
 }
 
+fun <E: Comparable<E>> List<E>.binarySearch(element: E): Int {
+    var left = 0
+    var right = size - 1
+    while (left <= right) {
+        var mid = (left + right) / 2
+        val midVal = this[mid]
+        val compare = midVal.compareTo(element)
+
+        if (compare < 0) left = mid + 1
+        else if (compare > 0) right = mid - 1
+        else return mid             // element found
+    }
+    return -1                       // element not found
+}
+
 fun main(args: Array<String>) {
     val languages = arrayOf("Kotlin", "Java", "Scala", "JavaScript", "C#")
     println("Java is at - ${languages.linearSearch("Java")}")
