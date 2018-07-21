@@ -30,10 +30,6 @@ fun <E : Comparable<E>> Collection<E>.linearSearchInSortedCollection(element: E)
     return -1
 }
 
-fun jumpSearch() {
-    
-}
-
 fun <E: Comparable<E>> Array<E>.binarySearch(element: E): Int {
     var left = 0
     var right = size - 1
