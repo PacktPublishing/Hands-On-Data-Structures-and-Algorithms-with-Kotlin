@@ -17,30 +17,30 @@ fun search(text: String, pattern: String): Int {
 private fun hash(input: String): Long {
     var result = 0L
     input.forEachIndexed { index, char ->
-        result += (char.toDouble() * Math.pow(101.0, index.toDouble())).toLong()
+        result += (char.toDouble() * Math.pow(97.0, index.toDouble())).toLong()
     }
     return result
 }
 
 private fun rolledHash(oldChar: Char, newChar: Char, oldHash: Long, patternLen: Int): Long {
-    val newHash = (((oldHash - oldChar.toLong()) / 101)
-            + newChar.toDouble() * Math.pow(101.0, (patternLen - 1).toDouble())).toLong()
+    val newHash = (((oldHash - oldChar.toLong()) / 97)
+            + newChar.toDouble() * Math.pow(97.0, (patternLen - 1).toDouble())).toLong()
     return newHash
 }
 
 fun main(args: Array<String>) {
     // Testing Hash function
     println(hash("hello"))
-    val output: Long = 104L + 101L * 101L + 108L * 101L * 101L + 108L * 101L * 101L * 101L + 111L * 101L * 101L * 101L * 101L
+    val output: Long = 104L + 101L * 97L + 108L * 97L * 97L + 108L * 97L * 97L * 97L + 111L * 97L * 97L * 97L * 97L
     println(output)
 
     // Testing rolled Hash function
     println(hash("he"))
-    val output1: Long = 104L + 101L * 101L
+    val output1: Long = 104L + 101L * 97L
     println(output1)
     println(hash("el"))
     println(rolledHash('h', 'l', hash("he"), 2))
-    val output2: Long = 101L + 108L * 101L
+    val output2: Long = 101L + 108L * 97L
     println(output2)
 
     println(search("Hello", "el"))
