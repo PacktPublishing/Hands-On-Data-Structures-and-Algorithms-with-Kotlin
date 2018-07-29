@@ -2,7 +2,25 @@ import java.util.*
 
 fun search(text: String, pattern: String): Int {
     val prefixArr = preparePrefixArray(pattern)
-    return 0
+    val textLen = text.length
+    val patternLen = pattern.length
+
+    var patternIndex = 0
+    var textIndex = 0
+    while ((textIndex < textLen) and (patternIndex < patternLen)) {
+        if (pattern[patternIndex] == text[textIndex]) {
+            textIndex++
+            patternIndex++
+        } else {
+            if (patternIndex != 0) patternIndex = prefixArr[patternIndex - 1]
+            else textIndex++
+        }
+        if (patternIndex == patternLen) {
+            // We found the pattern
+            return textIndex - patternIndex
+        }
+    }
+    return -1
 }
 
 fun preparePrefixArray(pattern: String): IntArray {
@@ -28,5 +46,11 @@ fun preparePrefixArray(pattern: String): IntArray {
 }
 
 fun main(args:Array<String>) {
-    search("Hello Kotlin!!", "abcdabcy")
+    println(search("Hello Kotlin!!", "Ko"))
+    println(search("Hello Kotlin!!", "Kos"))
+    println(search("Hello", "el"))
+    println(search("Hello Kotlin", "owel"))
+    println(search("Hello", "lo"))
+    println(search("Hello", "llw"))
+    println(search("Hello", "llo"))
 }
