@@ -8,7 +8,8 @@ class HashMap<K, V> {
     private val loadFactor = 0.75f
 
     private var table: Array<Node<K, V>?>
-    private var size = 0
+    var size = 0
+        private set
 
     constructor() {
         this.table = arrayOfNulls(minCapacity)
@@ -71,6 +72,7 @@ class HashMap<K, V> {
         var first = table[index]
         if (first == null) {
             table[index] = Node(hash, key, value, null)
+            ++size
         } else {
             var node: Node<K, V>?
             var k = first.key
@@ -107,12 +109,12 @@ class HashMap<K, V> {
                 if (nextNode != null) {
                     do {
                         k = nextNode!!.key
-                        if (nextNode!!.hash == hash && (key === k || key == k)) {
+                        if (nextNode.hash == hash && (key === k || key == k)) {
                             node = nextNode
                             break
                         }
                         first = nextNode
-                        nextNode = nextNode!!.next
+                        nextNode = nextNode.next
                     } while(nextNode != null)
                 }
             }
@@ -162,6 +164,7 @@ fun main(args: Array<String>) {
     map.put("Test", "Testing")
     println(map.get("Test"))
     println(map.get("Testing"))
+    println(map.size)
 
     map.put("Testing", "Test")
     println(map.get("Testing"))
