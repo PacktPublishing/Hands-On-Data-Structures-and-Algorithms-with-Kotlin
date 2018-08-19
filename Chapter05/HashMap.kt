@@ -121,6 +121,7 @@ class HashMap<K, V> {
             if (node != null) {
                 if (node == first) table[index] = node.next
                 else first!!.next = node.next
+                --size
                 return node.value
             }
         }
