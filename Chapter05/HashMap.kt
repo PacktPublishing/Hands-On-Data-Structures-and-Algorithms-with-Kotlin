@@ -37,6 +37,11 @@ class HashMap<K, V> {
         return if (e == null) null else e.value
     }
 
+    fun getOrDefault(key: K, defaultVal: V): V? {
+        val e = getNode(hash(key), key)
+        return if (e == null) defaultVal else e.value
+    }
+
     private fun getNode(hash: Int, key: K): Node<K, V>? {
         val n = table.size
         if (n > 0) {
@@ -57,12 +62,30 @@ class HashMap<K, V> {
 
     fun containsKey(key: K) = getNode(hash(key), key) != null
 
+    fun containsValue(value: V): Boolean {
+        if (size > 0) {
+            for (index in table.indices) {
+                var e = table[index]
+                while (e != null) {
+                    if (value === e.value || value == e.value) return true
+                    e = e.next
+                }
+            }
+        }
+        return false
+    }
+
     fun put(key: K, value: V) {
         putVal(key, value)
     }
 
     fun putIfAbsent(key: K, value: V) {
         putVal(key, value, true)
+    }
+
+    fun replace(key: K, value: V) {
+        val e = getNode(hash(key), key)
+        if (e != null) e.value = value
     }
 
     private fun putVal(key: K, value: V, onlyIfAbsent: Boolean = false) {
@@ -128,6 +151,13 @@ class HashMap<K, V> {
             }
         }
         return null
+    }
+
+    fun clear() {
+        if (size > 0) {
+            size = 0
+            table.fill(null)
+        }
     }
 
     private class Node<K, V>(
