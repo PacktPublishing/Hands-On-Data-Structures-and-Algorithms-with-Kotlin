@@ -22,16 +22,12 @@ class HashMap<K, V> {
             capacity > maxCapacity -> maxCapacity
             else -> fetchNearestCapacity(capacity)
         }
-        this.table = makeTable(finalCapacity)
+        this.table = arrayOfNulls(finalCapacity)
     }
 
     private fun hash(key: K): Int {
         val h = key?.hashCode() ?: 0
         return h xor (h ushr 16)
-    }
-
-    private fun makeTable(capacity: Int): Array<Node<K, V>?> {
-        return arrayOfNulls(capacity)
     }
 
     fun isEmpty() = size == 0
@@ -65,7 +61,11 @@ class HashMap<K, V> {
         putVal(key, value)
     }
 
-    fun putVal(key: K, value: V, onlyIfAbsent: Boolean = false) {
+    fun putIfAbsent(key: K, value: V) {
+        putVal(key, value, true)
+    }
+
+    private fun putVal(key: K, value: V, onlyIfAbsent: Boolean = false) {
         val hash = hash(key)
         val n = table.size
         val index = (n - 1) and hash
@@ -85,7 +85,9 @@ class HashMap<K, V> {
                         break
                     }
                     k = node.key
-                    if (node.hash == hash && (k === key || k == key) && !onlyIfAbsent) {
+                    if (node.hash == hash
+                     && (k === key || k == key)
+                      && !onlyIfAbsent) {
                         node.value = value
                         break
                     }
@@ -128,7 +130,7 @@ class HashMap<K, V> {
         return null
     }
 
-    class Node<K, V>(
+    private class Node<K, V>(
         val hash: Int,
         val key: K,
         var value: V,
@@ -142,7 +144,7 @@ class HashMap<K, V> {
             if (other === this) return true
             if (other is Node<*, *> && this.key == other.key && this.value == other.value) return true
             return false
-        } 
+        }
     }
 
     private fun fetchNearestCapacity(i: Int): Int {
@@ -181,4 +183,16 @@ fun main(args: Array<String>) {
     map.remove("Test")
     println(map.get("Test"))
     println(map.get("Testing"))
+
+
+    println("Testing Put operation")
+    val languages = HashMap<String, String>()
+    languages.put("K", "Kotlin")
+    languages.put("J", "Java")
+    languages.put("C", "C++")
+    println("Getting C - ${languages.get("C")}")
+    languages.put("C", "C#")
+    println("Getting C After replacement - ${languages.get("C")}")
+    languages.putIfAbsent("C", "C++")
+    println("Getting C After replacement - ${languages.get("C")}")
 }
