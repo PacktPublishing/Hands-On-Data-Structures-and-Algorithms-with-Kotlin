@@ -54,27 +54,27 @@ private fun <E: Comparable<E>> merge(left: MutableList<E>, right: MutableList<E>
     val rightArrSize = right.size
     var leftArrIndex = 0
     var rightArrIndex = 0
-    var arr: MutableList<E> = mutableListOf()
+    var list: MutableList<E> = mutableListOf()
     while(leftArrIndex < leftArrSize && rightArrIndex < rightArrSize) {
         if (left[leftArrIndex] <= right[rightArrIndex]) {
-            arr.add(left[leftArrIndex])
+            list.add(left[leftArrIndex])
             leftArrIndex++
         } else {
-            arr.add(right[rightArrIndex])
+            list.add(right[rightArrIndex])
             rightArrIndex++
         }
     }
 
     while(leftArrIndex < leftArrSize) {
-        arr.add(left[leftArrIndex])
+        list.add(left[leftArrIndex])
         leftArrIndex++
     }
 
     while(rightArrIndex < rightArrSize) {
-        arr.add(right[rightArrIndex])
+        list.add(right[rightArrIndex])
         rightArrIndex++
     }
-    return arr
+    return list
 }
 
 fun main(args: Array<String>) {
