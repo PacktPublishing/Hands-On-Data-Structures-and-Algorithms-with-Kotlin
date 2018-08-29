@@ -1,105 +1,80 @@
 import java.util.*
 
-fun <E: Comparable<E>> Array<E>.sort() {
-    sort(this, 0, this.size - 1)
+fun <E: Comparable<E>> Array<E>.sort(): Array<E> {
+    if (size <= 1) return this
+
+    val middle = size / 2
+    val left = copyOfRange(0, middle)
+    val right = copyOfRange(middle, size)
+    return merge(this, left.sort(), right.sort())
 }
 
-private fun <E: Comparable<E>> sort(arr: Array<E>, left: Int, right: Int) {
-    println("Sort - Left - $left, Right - $right")
-    if (left < right) {
-        val middle = (left + right) / 2
-        sort(arr, left, middle)
-        sort(arr, middle + 1, right)
-
-        merge(arr, left, middle, right)
-    }
-}
-
-private fun <E: Comparable<E>> merge(arr: Array<E>, left: Int, middle: Int, right: Int) {
-    println(Arrays.toString(arr))
-    println("Left - $left, Right - $right, Middle - $middle")
-    val leftSubArrSize = middle - left + 1
-    val rightSubArrSize = right - middle
-
-    val leftArr = arr.copyOfRange(left, middle)
-    val rightArr = arr.copyOfRange(middle + 1, right)
-    println("Array - ${Arrays.toString(arr)}")
-    println("Left Array - ${Arrays.toString(leftArr)}")
-    println("Right Array - ${Arrays.toString(rightArr)}")
-
+private fun <E: Comparable<E>> merge(arr: Array<E>, left: Array<E>, right: Array<E>): Array<E> {
+    val leftArrSize = left.size
+    val rightArrSize = right.size
     var leftArrIndex = 0
     var rightArrIndex = 0
-    var mergedArrIndex = left
-    while(leftArrIndex < leftSubArrSize && rightArrIndex < rightSubArrSize) {
-        if (leftArr[leftArrIndex] <= rightArr[rightArrIndex]) {
-            arr[mergedArrIndex] = leftArr[leftArrIndex]
+    var index = 0
+    while(leftArrIndex < leftArrSize && rightArrIndex < rightArrSize) {
+        if (left[leftArrIndex] <= right[rightArrIndex]) {
+            arr[index] = left[leftArrIndex]
             leftArrIndex++
         } else {
-            arr[mergedArrIndex] = rightArr[rightArrIndex]
+            arr[index] = right[rightArrIndex]
             rightArrIndex++
         }
-        mergedArrIndex++
+        index++
     }
 
-    while(leftArrIndex < leftSubArrSize) {
-        arr[mergedArrIndex] = leftArr[leftArrIndex]
+    while(leftArrIndex < leftArrSize) {
+        arr[index] = left[leftArrIndex]
         leftArrIndex++
-        mergedArrIndex++
+        index++
     }
 
-    while(rightArrIndex < rightSubArrSize) {
-        arr[mergedArrIndex] = rightArr[rightArrIndex]
+    while(rightArrIndex < rightArrSize) {
+        arr[index] = right[rightArrIndex]
         rightArrIndex++
-        mergedArrIndex++
+        index++
     }
+    return arr
 }
 
-fun <E: Comparable<E>> MutableList<E>.sort() {
-    sort(this, 0, this.size - 1)
+fun <E: Comparable<E>> MutableList<E>.sort(): MutableList<E> {
+    if (size <= 1) return this
+
+    val middle = size / 2
+    val left = subList(0, middle)
+    val right = subList(middle, size)
+    return merge(left.sort(), right.sort())
 }
 
-private fun <E: Comparable<E>> sort(arr: MutableList<E>, left: Int, right: Int) {
-    if (left < right) {
-        val middle = (left + right) / 2
-        sort(arr, left, middle)
-        sort(arr, middle + 1, right)
-
-        merge(arr, left, middle, right)
-    }
-}
-
-private fun <E: Comparable<E>> merge(arr: MutableList<E>, left: Int, middle: Int, right: Int) {
-    val leftSubArrSize = middle - left + 1
-    val rightSubArrSize = right - middle
-
-    val leftArr = arr.subList(left, middle)
-    val rightArr = arr.subList(middle + 1, right)
-
+private fun <E: Comparable<E>> merge(left: MutableList<E>, right: MutableList<E>): MutableList<E> {
+    val leftArrSize = left.size
+    val rightArrSize = right.size
     var leftArrIndex = 0
     var rightArrIndex = 0
-    var mergedArrIndex = left
-    while(leftArrIndex < leftSubArrSize && rightArrIndex < rightSubArrSize) {
-        if (leftArr[leftArrIndex] <= rightArr[rightArrIndex]) {
-            arr[mergedArrIndex] = leftArr[leftArrIndex]
+    var arr: MutableList<E> = mutableListOf()
+    while(leftArrIndex < leftArrSize && rightArrIndex < rightArrSize) {
+        if (left[leftArrIndex] <= right[rightArrIndex]) {
+            arr.add(left[leftArrIndex])
             leftArrIndex++
         } else {
-            arr[mergedArrIndex] = rightArr[rightArrIndex]
+            arr.add(right[rightArrIndex])
             rightArrIndex++
         }
-        mergedArrIndex++
     }
 
-    while(leftArrIndex < leftSubArrSize) {
-        arr[mergedArrIndex] = leftArr[leftArrIndex]
+    while(leftArrIndex < leftArrSize) {
+        arr.add(left[leftArrIndex])
         leftArrIndex++
-        mergedArrIndex++
     }
 
-    while(rightArrIndex < rightSubArrSize) {
-        arr[mergedArrIndex] = rightArr[rightArrIndex]
+    while(rightArrIndex < rightArrSize) {
+        arr.add(right[rightArrIndex])
         rightArrIndex++
-        mergedArrIndex++
     }
+    return arr
 }
 
 fun main(args: Array<String>) {
@@ -108,6 +83,7 @@ fun main(args: Array<String>) {
     println(Arrays.toString(nums))
 
     val languages = mutableListOf("Kotlin", "Java", "C#", "R", "Python", "Scala", "Groovy", "C", "C++")
-    languages.sort()
+    val sortedLanguages = languages.sort()
     println(languages)
+    println(sortedLanguages)
 }
