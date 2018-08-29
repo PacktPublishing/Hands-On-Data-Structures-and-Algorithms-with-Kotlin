@@ -50,7 +50,7 @@ class ArrayMap<K, V> constructor(capacity: Int = 0) {
             index = indexOf(key)
         }
         if (index >= 0) {
-            // key-value pair aready present
+            // key-value pair already present
             index = (index shl 1) + 1
             val old = array[index] as V
             array[index] = value
@@ -99,6 +99,7 @@ class ArrayMap<K, V> constructor(capacity: Int = 0) {
             array[newSize shl 1] = null
             array[(newSize shl 1) + 1] = null
         }
+        size = newSize
         return oldVal as V
     }
 
@@ -224,4 +225,11 @@ fun main(args: Array<String>) {
     println(map.get("B"))
     println(map.get("C"))
     println(map.get("D"))
+
+    // Testing isEmpty
+    println(map.isEmpty())
+    map.remove("A")
+    map.remove("B")
+    map.remove("C")
+    println(map.isEmpty())
 }
