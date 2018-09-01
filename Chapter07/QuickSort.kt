@@ -57,6 +57,10 @@ fun main(args: Array<String>) {
     nums.sort()
     println(Arrays.toString(nums))
 
+    val numbers = arrayOf(17, 12, 29, 21, 5, 7)
+    numbers.sort()
+    println(Arrays.toString(numbers))
+
     val languages = mutableListOf("Kotlin", "Java", "C#", "R", "Python", "Scala", "Groovy", "C", "C++")
     languages.sort()
     println(languages)
