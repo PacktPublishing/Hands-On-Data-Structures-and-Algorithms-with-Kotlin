@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
     val list = IntArray(100) { it -> it * 10 }
 
     println("list.take(10) -> ${list.take(10)}")                                            //(1)
