@@ -13,7 +13,8 @@ fun main(args: Array<String>) {
 
     val alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     // Testing hash() function
-    for (i in 1..100) {
+    val size = alphabets.length
+    for (i in 1 until size) {
         println("$i = ${hash(alphabets[i])}")
     }
 }
