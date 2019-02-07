@@ -55,16 +55,14 @@ class QueueUnderflowException : RuntimeException()
 
 class QueueOverflowException : RuntimeException()
 
-fun main(args: Array<String>) {
+fun main() {
     val animals = CircularFixedQueue<String>(10)
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
 
     animals.enqueue("Lion")
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
-
     animals.enqueue("Tiger")
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
-
     animals.enqueue("Crocodile")
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
     animals.enqueue("Cat")
@@ -106,6 +104,9 @@ fun main(args: Array<String>) {
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
     animals.dequeue()
     System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
-    animals.dequeue()
-    System.out.println("$animals -- Empty? - ${animals.isEmpty()} -- Full? - ${animals.isFull()}")
+    try {
+        animals.dequeue()
+    } catch (e: QueueUnderflowException) {
+        System.out.println("Exception Expected!!!")
+    }
 }

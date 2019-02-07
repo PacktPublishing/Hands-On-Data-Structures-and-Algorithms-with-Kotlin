@@ -127,5 +127,9 @@ fun main(args: Array<String>) {
     println("Peek element - ${animals.peek()}")
     println("Peek element - ${animals.peek()}")
     animals.pop()
-    println("Peek element - ${animals.peek()}")
+    try {
+        println("Peek element - ${animals.peek()}")
+    } catch(e: StackUnderflowException) {
+        println("Empty Stack!!!")
+    }
 }

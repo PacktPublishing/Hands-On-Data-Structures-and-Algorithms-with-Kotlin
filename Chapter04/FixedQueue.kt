@@ -104,6 +104,9 @@ fun main(args: Array<String>) {
     println(animals)
     animals.dequeue()
     println(animals)
-    animals.dequeue()
-    println(animals)
+    try {
+        animals.dequeue()
+    } catch(e: QueueUnderflowException) {
+        System.out.println("FixedQueue is already empty!!!")
+    }
 }

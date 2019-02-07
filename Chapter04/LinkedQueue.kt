@@ -76,10 +76,8 @@ fun main(args: Array<String>) {
 
     animals.enqueue("Lion")
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
-
     animals.enqueue("Tiger")
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
-
     animals.enqueue("Crocodile")
     animals.enqueue("Cat")
     animals.enqueue("Dog")
@@ -120,5 +118,9 @@ fun main(args: Array<String>) {
     animals.dequeue()
     System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
     animals.dequeue()
-    System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")
+    try {
+        System.out.println("Front element - ${animals.front()} - Empty? -- ${animals.isEmpty()}")   
+    } catch(e: QueueUnderflowException) {
+        System.out.println("Already empty!!!")
+    }
 }
