@@ -25,6 +25,50 @@ class DoublyLinkyList<E> {
         linkTail(element)
     }
 
+    fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
+        validatePositionIndex(index)
+
+        val numNew = arr.size
+        if (numNew == 0) return false
+
+        var pred: Node<E>?
+        var succ: Node<E>?
+        when (index) {
+            0 -> {
+                succ = head
+                pred = null
+            }
+            size -> {
+                succ = null
+                pred = tail
+            }
+            else -> {
+                succ = node(index)
+                pred = succ.prev
+            }
+        }
+
+        for (item in arr) {
+            val e = item as E
+            val newNode = Node<E>(pred, e, null)
+            if (pred == null)
+                head = newNode
+            else
+                pred.next = newNode
+            pred = newNode
+        }
+
+        if (succ == null) {
+            tail = pred
+        } else {
+            pred!!.next = succ
+            succ!!.prev = pred
+        }
+
+        size += numNew
+        return true
+    }
+
     fun remove(element: E): Boolean {
         var curr = head
         while (curr != null) {
@@ -55,12 +99,12 @@ class DoublyLinkyList<E> {
     operator fun contains(element: E) = indexOf(element) != -1
 
     fun get(index: Int): E {
-        validateIndex(index)
+        validateElementIndex(index)
         return node(index).element
     }
 
     fun set(index: Int, element: E): E {
-        validateIndex(index)
+        validateElementIndex(index)
         val x = node(index)
         val oldVal = x.element
         x.element = element
@@ -68,7 +112,7 @@ class DoublyLinkyList<E> {
     }
 
     fun add(index: Int, element: E) {
-        validateIndex(index)
+        validatePositionIndex(index)
         if (index == size) {
             linkTail(element)
         } else {
@@ -77,7 +121,7 @@ class DoublyLinkyList<E> {
     }
 
     fun remove(index: Int): E {
-        validateIndex(index)
+        validateElementIndex(index)
         return unlink(node(index))
     }
 
@@ -194,8 +238,13 @@ class DoublyLinkyList<E> {
         }
     }
 
-    private fun validateIndex(index: Int) {
+    private fun validateElementIndex(index: Int) {
         if (index < 0 || index >= size)
+            throw IndexOutOfBoundsException(outOfBoundsMsg(index))
+    }
+
+    private fun validatePositionIndex(index: Int) {
+        if (index < 0 && index > size)
             throw IndexOutOfBoundsException(outOfBoundsMsg(index))
     }
 
@@ -224,36 +273,36 @@ class DoublyLinkyList<E> {
 }
 
 fun main(args: Array<String>) {
-    val linkyList = DoublyLinkyList<String>()
-    println("First item of the linky list is - ${linkyList.getFirst()}")
-    println("Last item of the linky list is - ${linkyList.getLast()}")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    println("First item of the linky list is - ${doublyLinkyList.getFirst()}")
+    println("Last item of the linky list is - ${doublyLinkyList.getLast()}")
 
     println()
-    linkyList.add("Kotlin")
-    println("First item of the linky list is - ${linkyList.getFirst()}")
-    println("Last item of the linky list is - ${linkyList.getLast()}")
+    doublyLinkyList.add("Kotlin")
+    println("First item of the linky list is - ${doublyLinkyList.getFirst()}")
+    println("Last item of the linky list is - ${doublyLinkyList.getLast()}")
 
     println()
-    linkyList.add("Java")
-    println("First item of the linky list is - ${linkyList.getFirst()}")
-    println("Last item of the linky list is - ${linkyList.getLast()}")
+    doublyLinkyList.add("Java")
+    println("First item of the linky list is - ${doublyLinkyList.getFirst()}")
+    println("Last item of the linky list is - ${doublyLinkyList.getLast()}")
 
-    linkyList.add("C#")
-    linkyList.add("Python")
-    linkyList.add("JavaScript")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("Python")
+    doublyLinkyList.add("JavaScript")
 
     println()
-    println("Elements at linkyList - $linkyList")
-    linkyList.remove("JavaScript")
-    println("Elements at linkyList after removing JavaScript - $linkyList")
-    linkyList.remove("Kotlin")
-    println("Elements at linkyList after removing Kotlin - $linkyList")
-    linkyList.remove("C#")
-    println("Elements at linkyList after removing C# - $linkyList")
-    linkyList.remove("Java")
-    println("Elements at linkyList after removing Java - $linkyList")
-    linkyList.remove("Python")
-    println("Elements at linkyList after removing Python - $linkyList")
+    println("Elements at doublyLinkyList - $doublyLinkyList")
+    doublyLinkyList.remove("JavaScript")
+    println("Elements at doublyLinkyList after removing JavaScript - $doublyLinkyList")
+    doublyLinkyList.remove("Kotlin")
+    println("Elements at doublyLinkyList after removing Kotlin - $doublyLinkyList")
+    doublyLinkyList.remove("C#")
+    println("Elements at doublyLinkyList after removing C# - $doublyLinkyList")
+    doublyLinkyList.remove("Java")
+    println("Elements at doublyLinkyList after removing Java - $doublyLinkyList")
+    doublyLinkyList.remove("Python")
+    println("Elements at doublyLinkyList after removing Python - $doublyLinkyList")
 
     testGetFirst()
     testAdd()
@@ -262,92 +311,93 @@ fun main(args: Array<String>) {
     testRemoveFirst()
     testRemoveLast()
     testRemoveValue()
+    testAddAll()
 }
 
 fun testGetFirst() {
     println()
     println("==================================")
     println("getFirst method testing started")
-    val linkyList = DoublyLinkyList<String>()
-    println(linkyList.getFirst() == null)
+    val doublyLinkyList = DoublyLinkyList<String>()
+    println(doublyLinkyList.getFirst() == null)
 
-    linkyList.add("Kotlin")
-    println(linkyList.getFirst() == "Kotlin")
+    doublyLinkyList.add("Kotlin")
+    println(doublyLinkyList.getFirst() == "Kotlin")
 
-    linkyList.add("Java")
-    println(linkyList.getFirst() == "Kotlin")
+    doublyLinkyList.add("Java")
+    println(doublyLinkyList.getFirst() == "Kotlin")
 
-    linkyList.add("Python")
-    println(linkyList.getFirst() == "Kotlin")
+    doublyLinkyList.add("Python")
+    println(doublyLinkyList.getFirst() == "Kotlin")
 
-    linkyList.add(0, "Python")
-    println(linkyList.getFirst() == "Python")
+    doublyLinkyList.add(0, "Python")
+    println(doublyLinkyList.getFirst() == "Python")
 
-    linkyList.add(1, "JavaScript")
-    println(linkyList.getFirst() == "Python")
+    doublyLinkyList.add(1, "JavaScript")
+    println(doublyLinkyList.getFirst() == "Python")
 
-    linkyList.set(0, "JavaScript")
-    println(linkyList.getFirst() == "JavaScript")
+    doublyLinkyList.set(0, "JavaScript")
+    println(doublyLinkyList.getFirst() == "JavaScript")
 
-    linkyList.set(1, "Kotlin")
-    println(linkyList.getFirst() == "JavaScript")
+    doublyLinkyList.set(1, "Kotlin")
+    println(doublyLinkyList.getFirst() == "JavaScript")
 
-    linkyList.addFirst("Kotlin")
-    println(linkyList.getFirst() == "Kotlin")
+    doublyLinkyList.addFirst("Kotlin")
+    println(doublyLinkyList.getFirst() == "Kotlin")
 
-    linkyList.addLast("JavaScript")
-    println(linkyList.getFirst() == "Kotlin")
+    doublyLinkyList.addLast("JavaScript")
+    println(doublyLinkyList.getFirst() == "Kotlin")
 
     println("getFirst method testing ended")
     println("==================================")
     println()
-    linkyList.clear()
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.clear()
+    println("Elements at LinkyList - $doublyLinkyList")
 
-    linkyList.addFirst("Kotlin")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.addFirst("Kotlin")
+    println("Elements at LinkyList - $doublyLinkyList")
 
-    linkyList.addFirst("Kotlin")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.addFirst("Kotlin")
+    println("Elements at LinkyList - $doublyLinkyList")
 
-    linkyList.addFirst("Java")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.addFirst("Java")
+    println("Elements at LinkyList - $doublyLinkyList")
 
-    linkyList.addFirst("Python")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.addFirst("Python")
+    println("Elements at LinkyList - $doublyLinkyList")
 }
 
 fun testAdd() {
     println()
     println("==================================")
     println("testAdd method testing started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
-    println("Elements at LinkyList - $linkyList")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println()
-    linkyList.add(1, "JavaScript")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.add(1, "JavaScript")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println()
-    linkyList.add(2, "TypeScript")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.add(2, "TypeScript")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println()
-    linkyList.add(3, "CofeeScript")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.add(3, "CofeeScript")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println()
-    linkyList.add(7, "MongoDB")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.add(7, "MongoDB")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println()
-    linkyList.add(0, "SQL")
-    println("Elements at LinkyList - $linkyList")
+    doublyLinkyList.add(0, "SQL")
+    println("Elements at LinkyList - $doublyLinkyList")
 
     println("testAdd method testing started")
     println("==================================")
@@ -357,18 +407,18 @@ fun testGet() {
     println()
     println("=================================")
     println("Testing get started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
 
-    println("0th Index - ${linkyList.get(0)}")
-    println("1st Index - ${linkyList.get(1)}")
-    println("2nd Index - ${linkyList.get(2)}")
-    println("3rd Index - ${linkyList.get(3)}")
-    println("4th Index - ${linkyList.get(4)}")
+    println("0th Index - ${doublyLinkyList.get(0)}")
+    println("1st Index - ${doublyLinkyList.get(1)}")
+    println("2nd Index - ${doublyLinkyList.get(2)}")
+    println("3rd Index - ${doublyLinkyList.get(3)}")
+    println("4th Index - ${doublyLinkyList.get(4)}")
     println("Testing get ended")
     println("=================================")
 }
@@ -377,19 +427,19 @@ fun testSet() {
     println()
     println("=================================")
     println("Testing set started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
 
-    println("0th Index - ${linkyList.set(0, "Edited Kotlin")}")
-    println("1st Index - ${linkyList.set(1, "Edited Java")}")
-    println("2nd Index - ${linkyList.set(2, "Edited C#")}")
-    println("3rd Index - ${linkyList.set(3, "Edited C")}")
-    println("4th Index - ${linkyList.set(4, "Edited C++")}")
-    println("Final list - $linkyList")
+    println("0th Index - ${doublyLinkyList.set(0, "Edited Kotlin")}")
+    println("1st Index - ${doublyLinkyList.set(1, "Edited Java")}")
+    println("2nd Index - ${doublyLinkyList.set(2, "Edited C#")}")
+    println("3rd Index - ${doublyLinkyList.set(3, "Edited C")}")
+    println("4th Index - ${doublyLinkyList.set(4, "Edited C++")}")
+    println("Final list - $doublyLinkyList")
     println("Testing set ended")
     println("=================================")
 }
@@ -398,22 +448,22 @@ fun testRemoveFirst() {
     println()
     println("=================================")
     println("Testing removeFirst started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
 
-    println("List - $linkyList")
-    linkyList.removeFirst()
-    println("List - $linkyList")
-    linkyList.removeFirst()
-    println("List - $linkyList")
-    linkyList.removeFirst()
-    println("List - $linkyList")
-    linkyList.removeFirst()
-    println("List - $linkyList")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeFirst()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeFirst()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeFirst()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeFirst()
+    println("List - $doublyLinkyList")
     println("Testing removeFirst ended")
     println("=================================")
 }
@@ -422,24 +472,24 @@ fun testRemoveLast() {
     println()
     println("=================================")
     println("Testing removeLast started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
 
-    println("List - $linkyList")
-    linkyList.removeLast()
-    println("List - $linkyList")
-    linkyList.removeLast()
-    println("List - $linkyList")
-    linkyList.removeLast()
-    println("List - $linkyList")
-    linkyList.removeLast()
-    println("List - $linkyList")
-    linkyList.removeLast()
-    println("List - $linkyList")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeLast()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeLast()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeLast()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeLast()
+    println("List - $doublyLinkyList")
+    doublyLinkyList.removeLast()
+    println("List - $doublyLinkyList")
     println("Testing removeLast ended")
     println("=================================")
 }
@@ -448,25 +498,47 @@ fun testRemoveValue() {
     println()
     println("=================================")
     println("Testing testRemoveValue started")
-    val linkyList = DoublyLinkyList<String>()
-    linkyList.add("Kotlin")
-    linkyList.add("Java")
-    linkyList.add("C#")
-    linkyList.add("C")
-    linkyList.add("C++")
+    val doublyLinkyList = DoublyLinkyList<String>()
+    doublyLinkyList.add("Kotlin")
+    doublyLinkyList.add("Java")
+    doublyLinkyList.add("C#")
+    doublyLinkyList.add("C")
+    doublyLinkyList.add("C++")
 
-    println("JavaScript" in linkyList)
-    println("Kotlin" in linkyList)
+    println("JavaScript" in doublyLinkyList)
+    println("Kotlin" in doublyLinkyList)
 
-    println("List - $linkyList")
-    linkyList.remove("Java")
-    println("List - $linkyList")
-    linkyList.remove("Kotlin")
-    println("List - $linkyList")
-    linkyList.remove("JavaScript")
-    println("List - $linkyList")
-    linkyList.remove("Python")
-    println("List - $linkyList")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.remove("Java")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.remove("Kotlin")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.remove("JavaScript")
+    println("List - $doublyLinkyList")
+    doublyLinkyList.remove("Python")
+    println("List - $doublyLinkyList")
     println("Testing testRemoveValue ended")
+    println("=================================")
+}
+
+fun testAddAll() {
+    println()
+    println("=================================")
+    println("Testing testAddAll started")
+    
+    val doublyLinkyList = DoublyLinkyList<String>()
+
+    // Add few elements at begining of the linkedlist
+    doublyLinkyList.addAll(0, arrayOf<String>("C", "C++"))
+    println("List - $doublyLinkyList")
+    doublyLinkyList.addAll(0, arrayOf<String>("Java", "Kotlin"))
+    println("List - $doublyLinkyList")
+    // Add few elements at middle of the linkedlist
+    doublyLinkyList.addAll(2, arrayOf<String>("Python", "R"))
+    println("List - $doublyLinkyList")
+    // Add few elements at end of the linkedlist
+    doublyLinkyList.addAll(doublyLinkyList.size(), arrayOf<String>("C#", "MATLAB"))
+    println("List - $doublyLinkyList")
+    println("Testing testAddAll ended")
     println("=================================")
 }
