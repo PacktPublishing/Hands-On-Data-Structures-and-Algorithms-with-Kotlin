@@ -1,0 +1,53 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+}
+
+group 'com.rivuchk.packtpub.hodskotlin'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'kotlin-kapt'
+def arrow_version = "0.8.2"
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    compile "io.arrow-kt:arrow-core:$arrow_version"
+    compile "io.arrow-kt:arrow-syntax:$arrow_version"
+    compile "io.arrow-kt:arrow-typeclasses:$arrow_version"
+    compile "io.arrow-kt:arrow-data:$arrow_version"
+    compile "io.arrow-kt:arrow-instances-core:$arrow_version"
+    compile "io.arrow-kt:arrow-instances-data:$arrow_version"
+    kapt    "io.arrow-kt:arrow-annotations-processor:$arrow_version"
+
+    compile "io.arrow-kt:arrow-query-language:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-free:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-instances-free:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-mtl:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-instances:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-rx2:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-rx2-instances:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-reactor:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-reactor-instances:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-kotlinx-coroutines:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-effects-kotlinx-coroutines-instances:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-optics:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-generic:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-recursion:$arrow_version" //optional
+    compile "io.arrow-kt:arrow-instances-recursion:$arrow_version" //optional
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+    jcenter()
+}
