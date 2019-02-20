@@ -25,6 +25,49 @@ class LinkyList<E> {
         linkTail(element)
     }
 
+    fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
+        validatePositionIndex(index)
+
+        val numNew = arr.size
+        if (numNew == 0) return false
+
+        var pred: Node<E>?
+        var succ: Node<E>?
+        when (index) {
+            0 -> {
+                succ = head
+                pred = null
+            }
+            size -> {
+                succ = null
+                pred = tail
+            }
+            else -> {
+                pred = node(index - 1)
+                succ = pred.next
+            }
+        }
+
+        for (item in arr) {
+            val e = item as E
+            val newNode = Node<E>(e, null)
+            if (pred == null)
+                head = newNode
+            else
+                pred.next = newNode
+            pred = newNode
+        }
+
+        if (succ == null) {
+            tail = pred
+        } else {
+            pred!!.next = succ
+        }
+
+        size += numNew
+        return true
+    }
+
     fun remove(element: E): Boolean {
         var curr = head
         while (curr != null) {
@@ -54,12 +97,12 @@ class LinkyList<E> {
     operator fun contains(element: E) = indexOf(element) != -1
 
     fun get(index: Int): E {
-        validateIndex(index)
+        validateElementIndex(index)
         return node(index).element
     }
 
     fun set(index: Int, element: E): E {
-        validateIndex(index)
+        validateElementIndex(index)
         val x = node(index)
         val oldVal = x.element
         x.element = element
@@ -67,7 +110,7 @@ class LinkyList<E> {
     }
 
     fun add(index: Int, element: E) {
-        validateIndex(index)
+        validatePositionIndex(index)
         if (index == size) {
             linkTail(element)
         } else {
@@ -76,7 +119,7 @@ class LinkyList<E> {
     }
 
     fun addV2(index: Int, element: E) {
-        validateIndex(index)
+        validatePositionIndex(index)
         if (index == 0) linkHead(element)
         else {
             var x = head
@@ -92,7 +135,7 @@ class LinkyList<E> {
     }
 
     fun remove(index: Int): E {
-        validateIndex(index)
+        validateElementIndex(index)
         return unlink(node(index))
     }
 
@@ -210,8 +253,13 @@ class LinkyList<E> {
         return x!!
     }
 
-    private fun validateIndex(index: Int) {
+    private fun validateElementIndex(index: Int) {
         if (index < 0 || index >= size)
+            throw IndexOutOfBoundsException(outOfBoundsMsg(index))
+    }
+
+    private fun validatePositionIndex(index: Int) {
+        if (index < 0 && index > size)
             throw IndexOutOfBoundsException(outOfBoundsMsg(index))
     }
 
@@ -278,6 +326,7 @@ fun main(args: Array<String>) {
     testRemoveFirst()
     testRemoveLast()
     testRemoveValue()
+    testAddAll()
 }
 
 fun testGetFirst() {
@@ -482,5 +531,27 @@ fun testRemoveValue() {
     linkyList.remove("Python")
     println("List - $linkyList")
     println("Testing testRemoveValue ended")
+    println("=================================")
+}
+
+fun testAddAll() {
+    println()
+    println("=================================")
+    println("Testing testAddAll started")
+    
+    val linkyList = LinkyList<String>()
+
+    // Add few elements at begining of the linkedlist
+    linkyList.addAll(0, arrayOf<String>("C", "C++"))
+    println("List - $linkyList")
+    linkyList.addAll(0, arrayOf<String>("Java", "Kotlin"))
+    println("List - $linkyList")
+    // Add few elements at middle of the linkedlist
+    linkyList.addAll(2, arrayOf<String>("Python", "R"))
+    println("List - $linkyList")
+    // Add few elements at end of the linkedlist
+    linkyList.addAll(linkyList.size(), arrayOf<String>("C#", "MATLAB"))
+    println("List - $linkyList")
+    println("Testing testAddAll ended")
     println("=================================")
 }
