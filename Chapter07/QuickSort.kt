@@ -52,6 +52,12 @@ private fun <E: Comparable<E>> partition(arr: MutableList<E>, low: Int, high: In
     return i + 1;
 }
 
+fun <E: Comparable<E>> List<E>.sort(): List<E> {
+    val resultList = toMutableList()
+    sort(resultList, 0, size - 1)
+    return resultList
+}
+
 fun <E: Comparable<E>> Array<E>.descending() {
     descending(this, 0, size - 1)
 }
@@ -125,4 +131,11 @@ fun main(args: Array<String>) {
     val list = arrayOf("Kotlin", "Java", "C", "C++", "R", "Python", "Matlab")
     list.descending()
     println(Arrays.toString(list))
+
+    println()
+    println("Immutable list sorting")
+    val immutableLangs = listOf("Kotlin", "Java", "C#", "R", "Python", "Scala", "Groovy", "C", "C++")
+    val sortedLangs = immutableLangs.sort()
+    println(immutableLangs)
+    println(sortedLangs)
 }

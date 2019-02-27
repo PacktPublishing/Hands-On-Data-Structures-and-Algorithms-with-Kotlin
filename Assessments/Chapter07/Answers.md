@@ -63,7 +63,7 @@ private fun <E: Comparable<E>> descendingPartition(arr: MutableList<E>, low: Int
 
 Bubble sort with an immutable list API:
 ```
-fun <E: Comparable<E>> List<E>.sort(): List<E> {
+fun <E: Comparable<E>> List<E>.bubbleSort(): List<E> {
     val len = size
     val resultList = toMutableList()
     for (i in 0 until (len - 1)) {
@@ -81,7 +81,7 @@ fun <E: Comparable<E>> List<E>.sort(): List<E> {
 
 Selection sort with immutable list API:
 ```
-fun <E: Comparable<E>> List<E>.sort(): List<E> {
+fun <E: Comparable<E>> List<E>.selectionSort(): List<E> {
     val len = size
     val resultList = toMutableList()
     // Find the minimum value of the array
@@ -103,7 +103,7 @@ fun <E: Comparable<E>> List<E>.sort(): List<E> {
 
 Insertion sort with immutable list API:
 ```
-fun <E: Comparable<E>> List<E>.sort(): List<E> {
+fun <E: Comparable<E>> List<E>.insertionSort(): List<E> {
     val len = size
     val resultList = toMutableList()
     for (i in 1 until len) {
@@ -117,5 +117,36 @@ fun <E: Comparable<E>> List<E>.sort(): List<E> {
         resultList[j + 1] = key
     }
     return resultList
+}
+```
+
+Quick sort with immutable list API:
+```
+fun <E: Comparable<E>> List<E>.quickSort(): List<E> {
+    val resultList = toMutableList()
+    sort(resultList, 0, size - 1)
+    return resultList
+}
+
+private fun <E: Comparable<E>> sort(arr: MutableList<E>, low: Int, high: Int) {
+    if (low < high) {
+        val partitionIndex = partition(arr, low, high)
+
+        sort(arr, low, partitionIndex - 1)
+        sort(arr, partitionIndex + 1, high)
+    }
+}
+
+private fun <E: Comparable<E>> partition(arr: MutableList<E>, low: Int, high: Int): Int {
+    val pivot = arr[high]
+    var i = low - 1
+    for (j in low until high) {
+        if (arr[j] <= pivot) {
+            i++
+            arr[i] = arr[j].also { arr[j] = arr[i] }
+        }
+    }
+    arr[i + 1] = arr[high].also { arr[high] = arr[i + 1] }
+    return i + 1;
 }
 ```
