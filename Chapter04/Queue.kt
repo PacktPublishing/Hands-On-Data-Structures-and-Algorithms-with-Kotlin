@@ -14,6 +14,11 @@ class Queue<E> {
         this.elements = arrayOfNulls(initialCapacity)
     }
 
+    constructor(elements: Array<E>) {
+        this.elements = elements as Array<Any?>
+        size += elements.size
+    }
+
     fun enqueue(element: E) {
         if (size == elements.size) {
             val newArray = arrayOfNulls<Any>(size + if (size < minCapacityIncrement / 2)
@@ -91,4 +96,16 @@ fun main(args: Array<String>) {
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
     animals.dequeue()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+
+    println()
+    val languages = Queue(arrayOf("Kotlin", "Java"))
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.enqueue("C")
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.dequeue()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.dequeue()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.dequeue()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
 }

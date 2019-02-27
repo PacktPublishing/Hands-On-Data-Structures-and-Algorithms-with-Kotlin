@@ -14,6 +14,11 @@ class Stack<E> {
         this.elements = arrayOfNulls(initialCapacity)
     }
 
+    constructor(elements: Array<E>) {
+        this.elements = elements as Array<Any?>
+        size += elements.size
+    }
+
     fun push(element: E) {
         if (size == elements.size) {
             val newArray = arrayOfNulls<Any>(size + if (size < minCapacityIncrement / 2)
@@ -85,4 +90,16 @@ fun main(args: Array<String>) {
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
     animals.pop()
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
+
+    println()
+    val languages = Stack(arrayOf("Kotlin", "Java"))
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.push("C")
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.pop()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.pop()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
+    languages.pop()
+    println("$languages - Empty? -- ${languages.isEmpty()}")
 }
