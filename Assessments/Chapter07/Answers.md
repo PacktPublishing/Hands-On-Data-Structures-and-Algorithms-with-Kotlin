@@ -60,3 +60,22 @@ private fun <E: Comparable<E>> descendingPartition(arr: MutableList<E>, low: Int
 ```
 
 #### 2. Implement all the sorting algorithms discussed above for immutable list.
+
+Bubble sort with an immutable list API:
+```
+fun <E: Comparable<E>> List<E>.sort(): List<E> {
+    val len = size
+    val resultList = toMutableList()
+    for (i in 0 until (len - 1)) {
+        for (j in 0 until (len - i - 1)) {
+            if (resultList[j].compareTo(resultList[j + 1]) > 0) {
+                val temp = resultList[j]
+                resultList[j] = resultList[j + 1]
+                resultList[j + 1] = temp
+            }
+        }
+    }
+    return resultList
+}
+```
+
