@@ -31,12 +31,31 @@ class Stack<E> {
         elements[size++] = element
     }
 
+    fun pushAll(newElements: Array<E>) {
+        val newSize = size + newElements.size
+        if (elements.size < newSize) {
+            // New sizing can be of any logic as per requirement
+            val newArray = arrayOfNulls<Any>(newSize + minCapacityIncrement)
+            System.arraycopy(elements, 0, newArray, 0, size)
+            elements = newArray
+        }
+        System.arraycopy(newElements, 0, elements, size, newElements.size)
+        size = newSize
+    }
+
     fun pop(): E {
         if (size == 0) throw StackUnderflowException()
         val index = --size
         val obj = elements[index]
         elements[index] = null
         return obj as E
+    }
+
+    fun pop(count: Int) {
+        if (size == 0 || size < count) throw StackUnderflowException()
+        for (i in 0 until count) {
+            elements[--size] = null
+        }
     }
 
     fun peek() = try {
@@ -102,4 +121,29 @@ fun main(args: Array<String>) {
     println("$languages - Empty? -- ${languages.isEmpty()}")
     languages.pop()
     println("$languages - Empty? -- ${languages.isEmpty()}")
+
+    testPushAll()
+    testPop()
+}
+
+fun testPushAll() {
+    println()
+    println("Testing pushAll")
+    val numbers = Stack<Int>(10)
+    numbers.pushAll(Array<Int>(100) { i -> i })
+    println(numbers)
+    numbers.pop()
+    numbers.pushAll(arrayOf(1, 2, 12, 909))
+    println(numbers)
+}
+
+fun testPop() {
+    println()
+    println("Testing pop count")
+    val numbers = Stack<Int>(10)
+    numbers.pushAll(Array<Int>(100) { i -> i })
+    println(numbers)
+    numbers.pop(20)
+    numbers.pushAll(arrayOf(1, 2, 12, 909))
+    println(numbers)
 }
