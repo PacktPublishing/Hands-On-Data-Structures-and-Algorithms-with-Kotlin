@@ -100,3 +100,22 @@ fun <E: Comparable<E>> List<E>.sort(): List<E> {
     return resultList
 }
 ```
+
+Insertion sort with immutable list API:
+```
+fun <E: Comparable<E>> List<E>.sort(): List<E> {
+    val len = size
+    val resultList = toMutableList()
+    for (i in 1 until len) {
+        var key = resultList[i]
+        var j = i - 1;
+
+        while(j >= 0 && resultList[j].compareTo(key) > 0) {
+            resultList[j + 1] = resultList[j]
+            j--
+        }
+        resultList[j + 1] = key
+    }
+    return resultList
+}
+```
