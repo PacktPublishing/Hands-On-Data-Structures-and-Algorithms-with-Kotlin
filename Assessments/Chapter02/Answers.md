@@ -1,10 +1,10 @@
-#### Create an array of numbers between 0 to 500 that are multiples of 10.
+#### 1. Create an array of numbers between 0 to 500 that are multiples of 10.
 
 ```
 val multiplesOfTen = Array(51) { i -> i * 10 }
 ```
 
-#### Create an array with all the even indexed numbers of given array.
+#### 2. Create an array with all the even indexed numbers of given array.
 
 ```
 fun evenIndexedNumbers(arr: Array<Int>): IntArray {
@@ -14,7 +14,7 @@ fun evenIndexedNumbers(arr: Array<Int>): IntArray {
 }
 ```
 
-#### Write a snippet for finding a transpose of a matrix.
+#### 3. Write a snippet for finding a transpose of a matrix.
 
 ```
 fun transpose(matrix: Array<IntArray>): Array<IntArray>? {
@@ -36,7 +36,7 @@ fun transpose(matrix: Array<IntArray>): Array<IntArray>? {
 }
 ```
 
-#### Write a snippet to append elements of two arrays.
+#### 4. Write a snippet to append elements of two arrays.
 
 ```
 val arr1 = arrayOf(10, 20, 30)
@@ -44,7 +44,7 @@ val arr2 = arrayOf(100, 200, 300)
 val result = arr1 + arr2
 ```
 
-#### Write snippet to convert wrapper typed array to a primitive array.
+#### 5. Write snippet to convert wrapper typed array to a primitive array.
 
 ```
 val intArray = arrayOf(1, 2, 3, 4, 5)

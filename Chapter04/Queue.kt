@@ -93,6 +93,8 @@ class Queue<E> {
 
 class QueueUnderflowException : RuntimeException()
 
+inline fun <reified T> queueOf(vararg elements: T) = Queue<T>(elements as Array<T>)
+
 fun main(args: Array<String>) {
     val animals = Queue<String>(10)
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
@@ -131,6 +133,7 @@ fun main(args: Array<String>) {
     println("$languages - Empty? -- ${languages.isEmpty()}")
 
     testEnqueueDequeue()
+    testQueueOf()
 }
 
 fun testEnqueueDequeue() {
@@ -151,4 +154,13 @@ fun testEnqueueDequeue() {
     numbers.dequeue(60)
     println(numbers)
     println()
+}
+
+fun testQueueOf() {
+    val languages = queueOf("Kotlin", "Java")
+    println(languages)
+    languages.enqueue("C")
+    println(languages)
+    languages.dequeue()
+    println(languages)
 }

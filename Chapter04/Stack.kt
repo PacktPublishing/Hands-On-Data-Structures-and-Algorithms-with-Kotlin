@@ -85,6 +85,8 @@ class Stack<E> {
 
 class StackUnderflowException : RuntimeException()
 
+inline fun <reified T> stackOf(vararg elements: T) = Stack<T>(elements as Array<T>)
+
 fun main(args: Array<String>) {
     val animals = Stack<String>(10)
     System.out.println("$animals - Empty? -- ${animals.isEmpty()}")
@@ -124,6 +126,7 @@ fun main(args: Array<String>) {
 
     testPushAll()
     testPop()
+    testStackOf()
 }
 
 fun testPushAll() {
@@ -146,4 +149,13 @@ fun testPop() {
     numbers.pop(20)
     numbers.pushAll(arrayOf(1, 2, 12, 909))
     println(numbers)
+}
+
+fun testStackOf() {
+    val languages = stackOf("Kotlin", "Java")
+    println(languages)
+    languages.push("C")
+    println(languages)
+    languages.pop()
+    println(languages)
 }

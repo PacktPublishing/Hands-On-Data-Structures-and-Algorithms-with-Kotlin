@@ -1,4 +1,4 @@
-#### Write an API in linked list (LinkyList in this book) which adds all the elements of an array to the list.
+#### 1. Write an API in linked list (LinkyList in this book) which adds all the elements of an array to the list.
 
 ```
 fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
@@ -44,7 +44,7 @@ fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
 }
 ```
 
-#### Write the above API for doubly linked list (DoublyLinkyList in this book).
+#### 2. Write the above API for doubly linked list (DoublyLinkyList in this book).
 
 ```
 fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
@@ -92,7 +92,7 @@ fun <T> addAll(index: Int, arr: Array<T>): Boolean where T : E {
 }
 ```
 
-#### Write a snippet to link a node at head of a circular linked list.
+#### 3. Write a snippet to link a node at head of a circular linked list.
 
 ```
 private fun linkHead(element: E) {
@@ -111,7 +111,7 @@ private fun linkHead(element: E) {
 }
 ```
 
-#### Write a snippet to unlink a node from circular linked list.
+#### 4. Write a snippet to unlink a node from circular linked list.
 
 ```
 private fun unlink(curr: Node<E>): E {
@@ -138,7 +138,7 @@ private fun unlink(curr: Node<E>): E {
 }
 ```
 
-#### Implement toString() method of circular linked list.
+#### 5. Implement toString() method of circular linked list.
 
 ```
 override fun toString(): String {
