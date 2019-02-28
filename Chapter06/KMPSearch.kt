@@ -41,7 +41,6 @@ fun preparePrefixArray(pattern: String): IntArray {
             }
         }
     }
-    println(Arrays.toString(arr))
     return arr
 }
 
