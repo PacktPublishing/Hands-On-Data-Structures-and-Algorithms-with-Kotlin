@@ -25,6 +25,20 @@ class HashMap<K, V> {
         this.table = arrayOfNulls(finalCapacity)
     }
 
+    constructor(map: Map<K, V>) {
+        val size = map.size
+        val newSize = when {
+            size < minCapacity -> minCapacity
+            else -> fetchNearestCapacity(size)
+        }
+        this.table = arrayOfNulls(newSize)
+        if (size > 0) {
+            for (entry in map) {
+                putVal(entry.key, entry.value)
+            }
+        }
+    }
+
     private fun hash(key: K): Int {
         val h = key?.hashCode() ?: 0
         return h xor (h ushr 16)
@@ -225,4 +239,17 @@ fun main(args: Array<String>) {
     println("Getting C After replacement - ${languages.get("C")}")
     languages.putIfAbsent("C", "C++")
     println("Getting C After replacement - ${languages.get("C")}")
+
+    println()
+    println("Testing constructor with Map Argument")
+    val fruits = hashMapOf("A" to "Apple", "B" to "Banana", "C" to "Cherries")
+    val moreFruites = HashMap<String, String>(fruits)
+    moreFruites.put("D", "Dates")
+    println(moreFruites.get("A"))
+    println(moreFruites.get("D"))
+    println(moreFruites.get("M"))
+    moreFruites.put("M", "Mango")
+    println(moreFruites.get("M"))
+    moreFruites.put("A", "Apricot")
+    println(moreFruites.get("A"))
 }
