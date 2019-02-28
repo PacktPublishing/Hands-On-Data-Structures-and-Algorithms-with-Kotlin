@@ -1,26 +1,3 @@
-#### 1. Modify HashMap to have a constructor which accepts a Map<K, V> object to create itself.
-
-This constrcutor can be found in HashMap.kt file of Chapter04 section of this repository.
-
-```
-constructor(map: Map<K, V>) {
-    val size = map.size
-    val newSize = when {
-        size < minCapacity -> minCapacity
-        else -> fetchNearestCapacity(size)
-    }
-    this.table = arrayOfNulls(newSize)
-    if (size > 0) {
-        for (entry in map) {
-            putVal(entry.key, entry.value)
-        }
-    }
-}
-```
-
-#### 2. Implement a Map whose keys are primitive integers.
-
-```
 import java.util.*
 
 class IntMap<V> constructor(capacity: Int = 10) {
@@ -101,4 +78,76 @@ class IntMap<V> constructor(capacity: Int = 10) {
         array = arrayOfNulls(size)
     }
 }
-```
+
+fun main(args: Array<String>) {
+    val map = IntMap<String>()
+    map.put(1, "Apple")
+    map.put(2, "Banana")
+    map.put(3, "Cucumber")
+
+    // Testing get
+    println(map.get(1))
+    println(map.get(2))
+    println(map.get(3))
+    println(map.get(4))
+
+    // Testing indexOfKey
+    println("Index Of Key - ${map.indexOfKey(1)}")
+    println("Index Of Key - ${map.indexOfKey(2)}")
+    println("Index Of Key - ${map.indexOfKey(3)}")
+    println("Index Of Key - ${map.indexOfKey(4)}")
+
+    // Testing containsKey
+    println("Contains Key - ${map.containsKey(1)}")
+    println("Contains Key - ${map.containsKey(2)}")
+    println("Contains Key - ${map.containsKey(3)}")
+    println("Contains Key - ${map.containsKey(0)}")
+
+    // Testing valueAt
+    println("Value At - ${map.valueAt(0)}")
+    println("Value At - ${map.valueAt(1)}")
+    println("Value At - ${map.valueAt(2)}")
+    println("Value At - ${map.valueAt(3)}")
+    try {
+        println("Value At - ${map.valueAt(8)}")
+    } catch(e: ArrayIndexOutOfBoundsException) {
+        e.printStackTrace()
+    }
+    try {
+        println("Value At - ${map.valueAt(-2)}")
+    } catch(e: ArrayIndexOutOfBoundsException) {
+        e.printStackTrace()
+    }
+
+    // Testing keyAt
+    println("Key At - ${map.keyAt(0)}")
+    println("Key At - ${map.keyAt(1)}")
+    println("Key At - ${map.keyAt(2)}")
+    println("Key At - ${map.keyAt(3)}")
+
+    // Testing setValueAt
+    map.setValueAt(1, "Beet")
+    println(map.get(1))
+    println(map.get(2))
+    println(map.get(3))
+    println(map.get(4))
+
+    // Testing delete
+    println(map.delete(2))
+    println(map.get(1))
+    println(map.get(2))
+    println(map.get(3))
+    println(map.get(4))
+    map.put(2, "Banana")
+    println(map.get(1))
+    println(map.get(2))
+    println(map.get(3))
+    println(map.get(4))
+
+    // Testing isEmpty
+    println(map.isEmpty())
+    map.delete(1)
+    map.delete(2)
+    map.delete(3)
+    println(map.isEmpty())
+}
